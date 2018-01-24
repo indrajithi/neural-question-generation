@@ -1,0 +1,5 @@
+src=../gendata/snt.txt 
+par=../gendata/par.txt 
+beam_size=3
+gpuid=1
+replace_unk=true

@@ -1,0 +1,2 @@
+User name,Password,Access key ID,Secret access key,Console login link
+indra,,AKIAI4722OZKN4BDGJ2A,laFoV8ShZy7aPoeqHs5+Cf8jPICXh+W+4ORRT8qe,https://274343209804.signin.aws.amazon.com/console

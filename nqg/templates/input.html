@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Neural Question Generation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+.text-vertical-center {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+
+
+}
+
+.actionHolder{
+    margin: 15px 0;
+    text-align: center;
+  }
+.myclass{
+    width: 100%;
+  }
+
+.fileUpload {
+
+  margin: 15px 0;
+  display: inline;
+  margin-left: auto;
+  margin-right: auto
+}
+.fileUpload input.upload {
+  display: inline;
+  text-align: center;
+
+}
+
+.fileUpload input.file {
+  display: inline;
+}
+
+
+hr {
+    height:2px;
+    border:0;
+    background-color: #444;
+    line-height:20px;
+}
+
+hr:before {
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #111;
+}
+
+hr:after {
+    content: 'OR';
+    color:#ccc;
+    display:block;
+    text-align:center;
+    background-color:#222;
+    width:60px;
+    margin-top:-10px;
+    position:absolute;
+    left:50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    transform: translate(-50%);  
+}
+
+</style>
+<body>
+
+
+<div class="container" style="display: table;
+  margin: auto;">
+
+<div class="text-vertical-center">
+
+<div class="jumbotron" style=" border:solid black 10px;">
+
+
+<h1 style="text-align: center;">Automatic Question Generation</h1><br>
+<form action="/nqg/" method="post">
+    {%csrf_token%}
+    {% for error in form.non_field_errors %}
+    <div class="form-group has-errors text-danger small">
+        {{error}}
+    </div>
+    {% endfor %}
+    {% for field in form %}
+    <div class="form-group has-errors text-danger small">
+        {{field.errors}}
+    </div>
+    <div class="form-group has-errors text-danger small">
+    </div>
+    <div class="form-group">
+        {{field}}
+    </div>
+    {% endfor %}
+    <div class='actionHolder'>
+      <input type="submit" class="btn btn-success" style="padding: 10px 125px;font-size: 20px  ;" value="Generate Questions""><br>
+    </div>
+
+</form>
+
+<hr>
+
+<form action="/genq/file/" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {% for error in uploadform.non_field_errors %}
+    <div class="form-group has-errors text-danger small">
+        {{error}}
+    </div>
+    {% endfor %}
+    {% for field in uploadform %}
+   
+    
+       <div class="form-group has-errors text-danger small">
+        {{field.errors}}
+    </div>
+    <div class="form-group has-errors text-danger small">
+    </div>
+    <div class='actionHolder'>
+       <div class="btn-group">
+        {{field}}
+      </div>
+
+    {% endfor %}
+      <button type="submit" class="btn btn-primary" id='uploadButton' title="Your custom upload logic">Upload</button>
+    </div>
+
+</form>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

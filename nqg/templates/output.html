@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Neural Question Generation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+.text-vertical-center {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  h2 { border-bottom: 1px solid }
+
+  .actionHolder{
+    margin: 15px 0 30px 0;
+    text-align: center;
+  }
+  
+  .aQuestion::first-letter{
+    text-transform: uppercase;
+  }
+
+</style>
+<body>
+
+
+<div class="container" style="display: table; margin: auto;">
+
+<div class="text-vertical-center">
+
+<div class="jumbotron" style=" border:solid black 10px;">
+
+<h1 style="text-align: center;">Automatic Question Generation</h1>
+<div class='actionHolder'>
+  <input type="submit" class="btn btn-success" style="font-size: 20px; right:0 ;" value="New Input" onclick="location.href = '/nqg/'" >
+</div>
+
+<div class='formHolder'>
+ 
+  <p><strong>Input: </strong>  {{ paragraph }} </p>
+  <h2 style="border-bottom: 1px solid ">Generated Questions</h2>
+   </br>
+  {% for quest in questions%} 
+    <p class='aQuestion'> {{ quest }} </p>
+  {% endfor %}
+</div>
+   
+</div>
+
+
+<div id="out"></div>
+
+</div>
+</div>
+
+
+</div>
+
+
+            </body>
+          </html>

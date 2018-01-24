@@ -1,0 +1,4 @@
+src=/home/akhilesh/Documents/indra/app/gendata/snt.txt
+beam_size=3
+gpuid=1
+replace_unk=true
